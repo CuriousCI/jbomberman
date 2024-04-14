@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         var frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(256, 224);
+        frame.setSize(272, 208);
         frame.setVisible(true);
 
         var cardLayout = new CardLayout();
