@@ -28,10 +28,10 @@ public class GameScreen extends JPanel {
     final int GAME_HEIGHT = 196;
     final int OFFSET = JBomberMan.SNES_HEIGHT - GAME_HEIGHT;
 
-    record Wall(int x, int y) {
+    public record Wall(int x, int y) {
     };
 
-    record Bomb(int x, int y) {
+    public record Bomb(int x, int y) {
     };
 
     ArrayList<Wall> walls = new ArrayList<>();
