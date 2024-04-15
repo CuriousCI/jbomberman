@@ -19,13 +19,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # - name: Install Javadoc
-        # run: sudo apt install openjdk-17-jdk
+      - name: Install Javadoc
+        run: sudo apt install openjdk-17-jdk
+        run: sudo apt install openjdk-17-jre
         # run: sudo apt install openjdk-jdk
         # run: sudo snap install openjdk
 
       - name: Build Docs
-        run: javadoc -d docs -sourcepath src -subpackages jbomberman
+        run: javadoc -source 17 -d docs -sourcepath src -subpackages jbomberman
 
       - name: Setup Pages
         id: pages
