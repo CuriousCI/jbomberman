@@ -23,16 +23,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+record Wall(int x, int y) {
+};
+
+record Bomb(int x, int y) {
+};
+
 public class GameScreen extends JPanel {
     final int GAME_WIDTH = JBomberMan.SNES_WIDTH;
     final int GAME_HEIGHT = 196;
     final int OFFSET = JBomberMan.SNES_HEIGHT - GAME_HEIGHT;
-
-    public record Wall(int x, int y) {
-    };
-
-    public record Bomb(int x, int y) {
-    };
 
     ArrayList<Wall> walls = new ArrayList<>();
     ArrayList<Bomb> bombs = new ArrayList<>();
