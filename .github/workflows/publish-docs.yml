@@ -23,7 +23,7 @@ jobs:
         run: sudo apt install openjdk-17-jdk
 
       - name: Build Docs
-        run: javadoc -d docs -sourcepath src -subpackages jbomberman
+        run: javadoc -Xdoclint:none -d docs -sourcepath src -subpackages jbomberman
 
       - name: Setup Pages
         id: pages
