@@ -17,14 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Javadoc
-        run: |
-          sudo apt update
-          sudo apt upgrade
-          sudo apt install openjdk-17-jdk
+        run: sudo apt install openjdk-17-jdk
 
-      - name: Run docs
-        run: |
-          javadoc -d docs -sourcepath src -subpackages jbomberman
+      - name: Build Docs
+        run: javadoc -d docs -sourcepath src -subpackages jbomberman
 
       - name: Setup Pages
         id: pages
