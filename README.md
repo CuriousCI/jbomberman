@@ -27,7 +27,7 @@
     - level editor
 
 - MVC, observer etc..
-- Java Swing o JavaFX
+- [x] Java Swing o JavaFX
 - stream
 - audio
 - animations
