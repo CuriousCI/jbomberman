@@ -23,6 +23,7 @@ jobs:
         run: |
           sudo apt install openjdk-17-jdk
           sudo apt install openjdk-17-jre
+          export JAVA_HOME=/usr/lib/jvm/jdk-17/
         # run: sudo apt install openjdk-jdk
         # run: sudo snap install openjdk
 
