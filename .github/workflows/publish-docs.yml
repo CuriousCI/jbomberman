@@ -21,7 +21,7 @@ jobs:
 
       - name: Install Javadoc
         run: |
-          sudo apt update
+          sudo apt remove openjdk*
           sudo apt install openjdk-17-jdk
 
       - name: Build Docs
