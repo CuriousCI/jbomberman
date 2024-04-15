@@ -16,11 +16,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Install Javadoc
         run: sudo apt install openjdk-17-jdk
 
       - name: Build Docs
-        run: javadoc -d docs -sourcepath src
+        run: javadoc -d docs -sourcepath src -subpackages jbomberman
 
       - name: Setup Pages
         id: pages
