@@ -4,7 +4,7 @@ run:
 # TODO: clean after run
 
 docs:
-	javadoc -d docs -sourcepath src -subpackages jbomberman
+	javadoc -source 17 -d docs -sourcepath src -subpackages jbomberman
 
 clean:
 	rm src/*.class
