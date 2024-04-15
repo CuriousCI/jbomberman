@@ -22,7 +22,7 @@ jobs:
       - name: Install Javadoc
         # run: sudo apt install openjdk-17-jdk
         # run: sudo apt install openjdk-jdk
-        run sudo snap install openjdk
+        run: sudo snap install openjdk
 
       - name: Build Docs
         run: javadoc -d docs -sourcepath src -subpackages jbomberman
