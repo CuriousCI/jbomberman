@@ -20,8 +20,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Javadoc
-        run: sudo apt install openjdk-17-jdk
-        run: sudo apt install openjdk-17-jre
+        run: |
+          sudo apt install openjdk-17-jdk
+          sudo apt install openjdk-17-jre
         # run: sudo apt install openjdk-jdk
         # run: sudo snap install openjdk
 
