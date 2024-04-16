@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read/write
-  packages: read/write
+  # contents: read
+  # packages: write
   id-token: write
 
 jobs:
