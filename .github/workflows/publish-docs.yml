@@ -29,7 +29,9 @@ jobs:
         # run: sudo snap install openjdk
 
       - name: Build Docs
-        run: javadoc -source 17 -release 17 -d docs -sourcepath src -subpackages jbomberman
+        run: |
+          javadoc --version
+          javadoc -source 17 -release 17 -d docs -sourcepath src -subpackages jbomberman
 
       - name: Setup Pages
         id: pages
