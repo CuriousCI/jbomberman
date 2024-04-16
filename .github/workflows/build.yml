@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: all
-  packages: all
+  contents: read/write
+  packages: read/write
   id-token: write
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
         
       - uses: dev-drprasad/delete-older-releases@v0.3.3
         with:
-          keep_latest: 3
+          keep_latest: 1
           delete_tags: true
           delete_tag_pattern: jar # defaults to ""
         env:
