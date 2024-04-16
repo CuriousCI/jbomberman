@@ -20,17 +20,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Javadoc
-        run: |
+        run: sudo apt install openjdk-17-jdk
           # sudo apt remove openjdk* --purge
-          sudo apt install openjdk-17-jdk
           # sudo apt install openjdk-17-jre
-          sudo apt install openjdk-17-doc
+          # sudo apt install openjdk-17-doc
           # export JAVA_HOME=/usr/lib/jvm/jdk-17/
         # run: sudo apt install openjdk-jdk
         # run: sudo snap install openjdk
 
       - name: Build Docs
-        run: javadoc -source 17 -d docs -sourcepath src -subpackages jbomberman
+        run: javadoc -source 17 -release 17 -d docs -sourcepath src -subpackages jbomberman
 
       - name: Setup Pages
         id: pages
