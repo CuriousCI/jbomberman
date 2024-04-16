@@ -1,6 +1,7 @@
 package jbomberman.view;
 
 import jbomberman.util.*;
+import jbomberman.model.*;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -10,19 +11,30 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class TitleScreen extends JPanel {
-
+public class TitleScreen extends JPanel implements Observer<User> {
     record Button(String text, Screen screen) {
     };
 
+    JLabel nickname = new JLabel("Guest");
+    JLabel games = new JLabel("GAMES: 0");
+    JLabel victories = new JLabel("0");
+    JLabel losses = new JLabel("0");
+    JLabel level = new JLabel("LEVEL: 0");
+
     @SafeVarargs
     public TitleScreen(Observer<Screen>... observers) {
+        // TODO: read userdata from file
 
         var profile = new JPanel(new FlowLayout());
-        profile.add(new JLabel("nickname")); // TODO: add avatar
-        profile.add(new JLabel("GAMES: 10, 7-3"));
-        profile.add(new JLabel("LEVEL: 10"));
+        // profile.add(new JLabel("nickname")); // TODO: add avatar
+        // profile.add(new JLabel("GAMES: 10, 7-3"));
+        // profile.add(new JLabel("LEVEL: 10"));
 
+        profile.add(nickname);
+        profile.add(games);
+        profile.add(victories);
+        profile.add(losses);
+        profile.add(level);
         add(profile);
         // - nickname
         // - avatar
@@ -49,5 +61,14 @@ public class TitleScreen extends JPanel {
 
             add(b);
         }
+    }
+
+    @Override
+    public void actionPerformed(User user) {
+        nickname.setText(user.nickname());
+        games.setText("GAMES: " + user.games());
+        victories.setText("" + user.victories());
+        losses.setText("" + (user.games() - user.victories()));
+        level.setText("LEVEL: " + user.level());
     }
 }
