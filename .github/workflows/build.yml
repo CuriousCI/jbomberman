@@ -1,0 +1,39 @@
+name: Publish Docs
+
+on:
+  push: 
+    branches: 
+      - "main"
+      
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17 for x64
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          architecture: x64
+
+      - name: Build jar
+        run: |
+          javac -sourcepath ./src/ -d ./target/ ./src/Main.java
+          jar cfe ./build/JBomberMan.jar Main ./target/Main.class 
+          
+      - name: Release
+        uses: fnkr/github-action-ghr@v1.3
+        env:
+          # GHR_COMPRESS: xz
+          GHR_PATH: build/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
