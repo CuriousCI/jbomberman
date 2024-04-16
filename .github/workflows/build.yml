@@ -35,13 +35,14 @@ jobs:
           javac -sourcepath ./src/ -d ./target/ ./src/Main.java
           jar cfe JBomberMan.jar Main ./target/*.class 
 
-     - uses: "marvinpinto/action-automatic-releases@latest"
-            with:
-              repo_token: "${{ secrets.GITHUB_TOKEN }}"
-              prerelease: false
-              files: |
-                LICENSE.txt
-                *.jar         
+      - name:
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
+          files: |
+            LICENSE.txt
+            *.jar         
 
       # - name: Release
       #   uses: fnkr/github-action-ghr@v1.3
