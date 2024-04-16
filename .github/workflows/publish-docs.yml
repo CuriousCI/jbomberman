@@ -20,7 +20,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Javadoc
-        run: sudo apt install openjdk-17-jdk
+        run: |
+          sudo apt install openjdk-17-jdk
+          export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd6
+          export PATH=$JAVA_HOME/bin:$PATH
           # sudo apt remove openjdk* --purge
           # sudo apt install openjdk-17-jre
           # sudo apt install openjdk-17-doc
