@@ -34,15 +34,23 @@ jobs:
         run: |
           javac -sourcepath ./src/ -d ./target/ ./src/Main.java
           jar cfe JBomberMan.jar Main ./target/*.class 
-          
-      - name: Release
-        uses: fnkr/github-action-ghr@v1.3
-        if: startsWith(github.ref, 'refs/tags/')
-        env:
-          GHR_PATH: JBomberMan.jar 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: jar
+
+     - uses: "marvinpinto/action-automatic-releases@latest"
+            with:
+              repo_token: "${{ secrets.GITHUB_TOKEN }}"
+              prerelease: false
+              files: |
+                LICENSE.txt
+                *.jar         
+
+      # - name: Release
+      #   uses: fnkr/github-action-ghr@v1.3
+      #   if: startsWith(github.ref, 'refs/tags/')
+      #   env:
+      #     GHR_PATH: JBomberMan.jar 
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: jar
         
       - uses: dev-drprasad/delete-older-releases@v0.3.3
         with:
