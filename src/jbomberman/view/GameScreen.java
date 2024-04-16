@@ -116,28 +116,28 @@ public class GameScreen extends JPanel {
         getActionMap().put("moveUp", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(x, y - moveSpeed);
+                movePlayer(x, y - moveSpeed);
             }
         });
 
         getActionMap().put("moveLeft", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(x - moveSpeed, y);
+                movePlayer(x - moveSpeed, y);
             }
         });
 
         getActionMap().put("moveDown", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(x, y + moveSpeed);
+                movePlayer(x, y + moveSpeed);
             }
         });
 
         getActionMap().put("moveRight", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                move(x + moveSpeed, y);
+                movePlayer(x + moveSpeed, y);
             }
         });
 
@@ -152,7 +152,7 @@ public class GameScreen extends JPanel {
     public void draw() {
     }
 
-    public void move(int x, int y) {
+    public void movePlayer(int x, int y) {
         if (x < 31 || y < OFFSET + 15 || x >= 239 - 25 || y >= OFFSET + 191 - 25)
             return;
 
