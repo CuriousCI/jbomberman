@@ -26,22 +26,10 @@ jobs:
           distribution: 'temurin'
           architecture: x64
 
-      # - name: Install Javadoc
-      #   run: |
-      #     sudo apt install openjdk-17-jdk
-          # export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd6
-          # export PATH=$JAVA_HOME/bin:$PATH
-          # sudo apt remove openjdk* --purge
-          # sudo apt install openjdk-17-jre
-          # sudo apt install openjdk-17-doc
-          # export JAVA_HOME=/usr/lib/jvm/jdk-17/
-        # run: sudo apt install openjdk-jdk
-        # run: sudo snap install openjdk
-
       - name: Build Docs
         run: |
           javadoc --version
-          javadoc -source 17 -release 17 -d docs -sourcepath src -subpackages jbomberman
+          javadoc -source 17 -d docs -sourcepath src -subpackages jbomberman
 
       - name: Setup Pages
         id: pages
