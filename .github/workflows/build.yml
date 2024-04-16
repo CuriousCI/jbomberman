@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
+  contents: write
+  packages: write
   id-token: write
 
 jobs:
@@ -37,4 +37,5 @@ jobs:
         env:
           # GHR_COMPRESS: xz
           GHR_PATH: build/
+          GHR_REPLACE: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
