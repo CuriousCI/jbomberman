@@ -33,7 +33,9 @@ jobs:
 
       - name: Build Docs
         run: |
-          /usr/lib/jvm/java-17-openjdk-amd6/bin/javadoc --version
+          which javadoc
+          where javadoc
+          javadoc --version
           /usr/lib/jvm/java-17-openjdk-amd6/bin/javadoc -source 17 -release 17 -d docs -sourcepath src -subpackages jbomberman
 
       - name: Setup Pages
