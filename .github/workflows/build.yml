@@ -29,7 +29,7 @@ jobs:
       - name: Build jar
         run: |
           javac -sourcepath ./src/ -d ./target/ ./src/Main.java
-          jar cfe ./build/JBomberMan.jar Main ./target/Main.class 
+          jar cfe ./build/JBomberMan.jar Main ./target/*.class 
           
       - name: Release
         uses: fnkr/github-action-ghr@v1.3
